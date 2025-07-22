@@ -1,0 +1,46 @@
+import random
+
+# Emoji dictionary
+options = {
+    1: '✊',  # Rock
+    2: '✋',  # Paper
+    3: '✌️',  # Scissors
+    4: '🦎',  # Lizard
+    5: '🖖'   # Spock
+}
+
+# Winning logic
+win_conditions = {
+    1: [3, 4],  # Rock beats Scissors, Lizard
+    2: [1, 5],  # Paper beats Rock, Spock
+    3: [2, 4],  # Scissors beats Paper, Lizard
+    4: [2, 5],  # Lizard beats Paper, Spock
+    5: [1, 3],  # Spock beats Rock, Scissors
+}
+
+print("================================")
+print("Rock Paper Scissors Lizard Spock")
+print("================================\n")
+
+print("1) ✊")
+print("2) ✋")
+print("3) ✌️")
+print("4) 🦎")
+print("5) 🖖")
+
+# Get player's choice
+player = int(input("Pick a number: "))
+
+# Get computer's choice
+computer = random.randint(1, 5)
+
+print(f"\nYou chose: {options[player]}")
+print(f"CPU chose: {options[computer]}")
+
+# Determine the winner
+if player == computer:
+    print("It's a tie!")
+elif computer in win_conditions[player]:
+    print("The player won!")
+else:
+    print("The computer won!")
